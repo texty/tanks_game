@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Танчики (гра)</title>
+
+    <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+
+   <div id="main-wrapper">
+        <div class="game-levels">
+            <button class="select-level active" value="Легкий">Легкий рівень</button>
+            <button class="select-level" value="Складний">Складний рівень</button>
+        </div>
+
+        <div class='pic-wrapper'>    
+            <img id='picture' src="img/unmarked/tanks_clear.jpg"/>
+            <p>Яка це модель:</p>
+            <div class="answers">
+                <button class="guess-model"></button>
+                <button class="guess-model"></button>
+                <button class="guess-model"></button>
+                <img id="play-again" src="img/update.svg"/>
+            </div>
+        </div>
+        <div class="explanation">
+            <p>Марка:</p>
+            <h3 id="model-name"></h3>
+            <p>Країна походження:</p>
+            <h3 id="origin"></h3>
+            <p>Ознаки:</p>
+            <div id="features"></div> 
+        </div>       
+    </div>
+
+    <script src="lib/d3v5.min.js"></script>
+    <script src="js/main.js"></script>
+    
+</body>
+</html>
