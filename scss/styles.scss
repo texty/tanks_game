@@ -1,0 +1,127 @@
+
+@font-face {
+    font-family: 'ProximaNova';
+    src: url('../font/proxima_regular/proxima-nova-regular.eot');
+    src: url('../font/proxima_regular/proxima-nova-regular.eot?#iefix') format('embedded-opentype'),
+    url('../font/proxima_regular/proxima-nova-regular.woff2') format('woff2'),
+    url('../font/proxima_regular/proxima-nova-regular.woff') format('woff'),
+    url('../font/proxima_regular/proxima-nova-regular.ttf') format('truetype'),
+    url('../font/proxima_regular/proxima-nova-regular.svg#youworkforthem') format('svg');
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'ProximaNova';
+    src: url('../font/proxima_bold/proxima-nova-bold.eot');
+    src: url('../font/proxima_bold/proxima-nova-bold.eot?#iefix') format('embedded-opentype'),
+    url('../font/proxima_bold/proxima-nova-bold.woff2') format('woff2'),
+    url('../font/proxima_bold/proxima-nova-bold.woff') format('woff'),
+    url('../font/proxima_bold/proxima-nova-bold.ttf') format('truetype'),
+    url('../font/proxima_bold/proxima-nova-bold.svg#youworkforthem') format('svg');
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  $green: #445300;
+  $red: #ff4c48;
+  
+  html * {
+    font-family: 'ProximaNova', sans-serif;  
+    color: $green;
+  }
+
+
+#main-wrapper {
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: max-content auto;
+    @media(max-width: 700px){
+        display: block;
+    }
+}
+
+button {
+    cursor: pointer;
+    border: 1px solid $green;
+    background-color: transparent;
+    padding: 5px;
+    font-size: 20px;
+}
+
+button:hover {
+    background-color: #44530014;
+}
+
+button.active {
+    background-color: $green;
+    color: white;
+}
+
+.game-levels {
+    display: flex;
+    justify-content: center;
+    grid-row: 1/2;
+    
+
+    button {        
+        width: max-content;
+        margin: 20px 10px;        
+    }
+}
+
+.pic-wrapper {
+    grid-row: 2/3;
+    margin-right: 20px;
+    margin-bottom: 50px;
+
+    img {
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .answers {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 0.3fr;
+        @media(max-width: 900px){
+            grid-template-columns: 1fr 1fr 1fr 0.5fr;
+        }
+
+        button {
+            width: 95%;
+        }
+
+        .correct {
+            background-color: $green;
+            color: white;
+        }
+
+        .uncorrect {
+            background-color: $red;
+            color: white;
+        }
+    }
+}
+
+.explanation {
+    grid-row: 2/3;
+    display: none;
+}
+    
+.explanation > p {
+        margin: 0;
+        font-size: 14px;   
+}
+
+.explanation > h3 {
+    margin-top: 0;
+}
+
+#play-again {
+    cursor: pointer;
+    width: 90%;
+    margin: 0 0 0 auto;
+}

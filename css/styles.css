@@ -1,0 +1,139 @@
+@font-face {
+  font-family: 'ProximaNova';
+  src: url("../font/proxima_regular/proxima-nova-regular.eot");
+  src: url("../font/proxima_regular/proxima-nova-regular.eot?#iefix") format("embedded-opentype"), url("../font/proxima_regular/proxima-nova-regular.woff2") format("woff2"), url("../font/proxima_regular/proxima-nova-regular.woff") format("woff"), url("../font/proxima_regular/proxima-nova-regular.ttf") format("truetype"), url("../font/proxima_regular/proxima-nova-regular.svg#youworkforthem") format("svg");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ProximaNova';
+  src: url("../font/proxima_bold/proxima-nova-bold.eot");
+  src: url("../font/proxima_bold/proxima-nova-bold.eot?#iefix") format("embedded-opentype"), url("../font/proxima_bold/proxima-nova-bold.woff2") format("woff2"), url("../font/proxima_bold/proxima-nova-bold.woff") format("woff"), url("../font/proxima_bold/proxima-nova-bold.ttf") format("truetype"), url("../font/proxima_bold/proxima-nova-bold.svg#youworkforthem") format("svg");
+  font-weight: 600;
+  font-style: normal;
+}
+
+html * {
+  font-family: 'ProximaNova', sans-serif;
+  color: #445300;
+}
+
+#main-wrapper {
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 1fr;
+      grid-template-columns: 2fr 1fr;
+  -ms-grid-rows: max-content auto;
+      grid-template-rows: -webkit-max-content auto;
+      grid-template-rows: max-content auto;
+}
+
+@media (max-width: 700px) {
+  #main-wrapper {
+    display: block;
+  }
+}
+
+button {
+  cursor: pointer;
+  border: 1px solid #445300;
+  background-color: transparent;
+  padding: 5px;
+  font-size: 20px;
+}
+
+button:hover {
+  background-color: #44530014;
+}
+
+button.active {
+  background-color: #445300;
+  color: white;
+}
+
+.game-levels {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+}
+
+.game-levels button {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 20px 10px;
+}
+
+.pic-wrapper {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  margin-right: 20px;
+  margin-bottom: 50px;
+}
+
+.pic-wrapper img {
+  width: 100%;
+  max-width: 600px;
+}
+
+.pic-wrapper .answers {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 0.3fr;
+      grid-template-columns: 1fr 1fr 1fr 0.3fr;
+}
+
+@media (max-width: 900px) {
+  .pic-wrapper .answers {
+    -ms-grid-columns: 1fr 1fr 1fr 0.5fr;
+        grid-template-columns: 1fr 1fr 1fr 0.5fr;
+  }
+}
+
+.pic-wrapper .answers button {
+  width: 95%;
+}
+
+.pic-wrapper .answers .correct {
+  background-color: #445300;
+  color: white;
+}
+
+.pic-wrapper .answers .uncorrect {
+  background-color: #ff4c48;
+  color: white;
+}
+
+.explanation {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  display: none;
+}
+
+.explanation > p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.explanation > h3 {
+  margin-top: 0;
+}
+
+#play-again {
+  cursor: pointer;
+  width: 90%;
+  margin: 0 0 0 auto;
+}
+/*# sourceMappingURL=styles.css.map */

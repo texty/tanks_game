@@ -1,0 +1,12 @@
+game_maket.jpg
+game_maket2.jpg
+R/
+font/
+
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
