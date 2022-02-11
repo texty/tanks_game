@@ -56,9 +56,15 @@ d3.select("#play-again").on("click", function(){
 
 
 function changeLevel(level){
+    if(level === "Легкий"){
+        input_data = data.filter(function(d) { return d.level === "Легкий"});
+    } else {
+        input_data = data
+    }
+
     df = d3.nest()
         .key(function (d) { return d.file; })
-        .entries(data.filter(function(d) { return d.level === level}));
+        .entries(input_data);    
     
     unwatched_pics = df;    
 }
@@ -75,7 +81,7 @@ function getRandom(){
 
 
     var model_quess = [];
-    
+
     model_quess.push({"model":random_pic.values[0].model, "value": "correct" });
    
     while(model_quess.length < 3){

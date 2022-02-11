@@ -115,9 +115,9 @@ button.active {
   display: none;
 }
 
-.explanation > p {
+p.small {
   margin: 0;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .explanation > h3 {

@@ -82,7 +82,7 @@ button.active {
         max-width: 600px;
     }
 
-    .answers {
+    .answers {       
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         
@@ -108,9 +108,9 @@ button.active {
     display: none;
 }
     
-.explanation > p {
+p.small {
         margin: 0;
-        font-size: 14px;   
+        font-size: 13px;   
 }
 
 .explanation > h3 {
