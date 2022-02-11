@@ -90,15 +90,8 @@ button.active {
 .pic-wrapper .answers {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr 1fr 0.3fr;
-      grid-template-columns: 1fr 1fr 1fr 0.3fr;
-}
-
-@media (max-width: 900px) {
-  .pic-wrapper .answers {
-    -ms-grid-columns: 1fr 1fr 1fr 0.5fr;
-        grid-template-columns: 1fr 1fr 1fr 0.5fr;
-  }
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
 }
 
 .pic-wrapper .answers button {
@@ -133,7 +126,8 @@ button.active {
 
 #play-again {
   cursor: pointer;
-  width: 90%;
-  margin: 0 0 0 auto;
+  display: block;
+  width: 50px;
+  margin: 20px auto;
 }
 /*# sourceMappingURL=styles.css.map */

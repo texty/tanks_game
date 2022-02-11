@@ -6,7 +6,7 @@ var random_pic;
 
 var models_list = d3.map(data, function(d) { return d.model}).keys();
 
-
+//change level
 d3.selectAll(".select-level").on("click", function(d){
     d3.selectAll(".select-level").classed("active", false);
     d3.select(this).classed("active", true);
@@ -21,6 +21,7 @@ d3.selectAll(".select-level").on("click", function(d){
 changeLevel(level);
 getRandom()
 
+//guess button
 d3.selectAll(".guess-model").on("click", function(){
     var result = d3.select(this).attr("value");
 
@@ -63,10 +64,18 @@ function changeLevel(level){
 }
 
 function getRandom(){ 
-    random_pic = df[Math.floor(Math.random() * df.length)];
+
+    if(unwatched_pics.length === 0){  
+        unwatched_pics = df  
+    }
+
+    random_pic = unwatched_pics[Math.floor(Math.random() * unwatched_pics.length)];
+    
     unwatched_pics = unwatched_pics.filter(function(d){ return d.key != random_pic.key; }); 
 
+
     var model_quess = [];
+    
     model_quess.push({"model":random_pic.values[0].model, "value": "correct" });
    
     while(model_quess.length < 3){
