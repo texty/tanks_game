@@ -125,6 +125,21 @@ p.small {
 }
 
 #clear-storage {
-    color:red; 
+    color:$red; 
     cursor: pointer;
+}
+
+#final-result {
+    border-bottom: 1px solid $green;
+    padding-bottom: 2px;
+
+    a {
+        color: inherit;
+        text-decoration: none;
+        font-size: 12px;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
 }

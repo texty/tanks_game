@@ -62,6 +62,10 @@ d3.selectAll(".guess-model").on("click", function(){
     if (result === "correct"){
         d3.select(this)
             .classed("correct", true);
+        d3.select('#final-result')
+            .style('color', '#445300')
+            .html(function(){  return 'ВГАДАЛИ'})
+
     } else {
         d3.select(this)
             .classed("uncorrect", true);
@@ -74,10 +78,15 @@ d3.selectAll(".guess-model").on("click", function(){
                 .classed("correct", true);                
             } 
         })
+
+        d3.select('#final-result')
+            .style('color', '#ff4c48')
+            .html(function(){  return "НЕ ВГАДАЛИ <span><a href='' style='color: #ff4c48;'>повернутися до  схеми </a></span>"})
     }
     
     d3.selectAll(".guess-model").style("pointer-events", "none");
     d3.select("#picture").attr("src", "https://raw.githubusercontent.com/texty/tanks_game/main/img/marked/"+random_pic.values[0].after);
+    
     d3.select(".explanation").style("display", "block"); 
 })
 
