@@ -1,4 +1,4 @@
-d3.csv("data/data.csv").then(function(data){
+d3.csv("https://raw.githubusercontent.com/texty/tanks_game/main/data/data.csv").then(function(data){
 
 var level = "Легкий";
 var df, unwatched_pics;
@@ -21,10 +21,44 @@ d3.selectAll(".select-level").on("click", function(d){
 changeLevel(level);
 getRandom()
 
+
+//обнулити рахунок
+
+d3.select("#clear-storage").on('click', function(){
+    window.localStorage.clear("answers");
+    answers = [];
+    d3.select("#total-score").html(function() { return `Ви вгадали 0 з 0` })
+})
+
+//відповіді, якщо вже є, беремо наявні, як ні створюємо пусті
+var answers = localStorage.getItem("answers") === null ? [] : JSON.parse(localStorage.getItem("answers"));
+
+
 //guess button
 d3.selectAll(".guess-model").on("click", function(){
     var result = d3.select(this).attr("value");
+   
+    //зберігаємо результат в 
+    var key = d3.select(this).text();
+    const answer = {name: key, result: result}    
+    answers.push(answer);
 
+    localStorage.setItem("answers", JSON.stringify(answers));
+
+    var stored = JSON.parse(localStorage.getItem("answers"));   
+
+    d3.select("#total-score").html(function(){
+        let correnct_amount = stored.filter(function(d){ return d.result === "correct"}).length;
+        let total_amount = stored.length;
+
+        return `Ви вгадали ${correnct_amount} з ${total_amount} | `
+    });
+
+    d3.select('#clear-storage').html('&times;')
+
+    
+
+    
     if (result === "correct"){
         d3.select(this)
             .classed("correct", true);
@@ -43,7 +77,7 @@ d3.selectAll(".guess-model").on("click", function(){
     }
     
     d3.selectAll(".guess-model").style("pointer-events", "none");
-    d3.select("#picture").attr("src", "img/marked/"+random_pic.values[0].after);
+    d3.select("#picture").attr("src", "https://raw.githubusercontent.com/texty/tanks_game/main/img/marked/"+random_pic.values[0].after);
     d3.select(".explanation").style("display", "block"); 
 })
 
@@ -95,7 +129,7 @@ function getRandom(){
     
 
     d3.select("#picture")
-        .attr("src", "img/unmarked/"+random_pic.values[0].before);
+        .attr("src", "https://raw.githubusercontent.com/texty/tanks_game/main/img/unmarked/"+random_pic.values[0].before);
 
     d3.selectAll(".guess-model")
         .data(model_quess)       
@@ -121,24 +155,4 @@ function clearAll(){
         .classed("correct", false)
         .classed("uncorrect", false);
 }
-
-
-
-
-
-
-
-    
-   
-
-
-
-
-
-
-
-
-
-
-
 })

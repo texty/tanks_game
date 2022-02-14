@@ -18,13 +18,15 @@
 
         <div class='pic-wrapper'>    
             <img id='picture' src="img/unmarked/tanks_clear.jpg"/>
-            <p class="small" style="margin:10px 0;">Яка це модель:</p>
+            <p style="margin:10px 0;">Яка це модель:</p>
             <div class="answers">
                 <button class="guess-model"></button>
                 <button class="guess-model"></button>
                 <button class="guess-model"></button>               
             </div>
             <img id="play-again" src="img/update.svg"/>
+            <p><span id='total-score'></span> <span id='clear-storage'></span></p>
+            
         </div>
         <div class="explanation">
             <p class="small">Марка:</p>
@@ -33,8 +35,12 @@
             <h3 id="origin"></h3>
             <p class="small">Ознаки:</p>
             <div id="features"></div> 
-        </div>       
+        </div>  
+        
+       
+
     </div>
+
 
     <script src="lib/d3v5.min.js"></script>
     <script src="js/main.js"></script>
