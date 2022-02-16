@@ -36,6 +36,7 @@ var answers = localStorage.getItem("answers") === null ? [] : JSON.parse(localSt
 
 //guess button
 d3.selectAll(".guess-model").on("click", function(){
+    d3.select("#play-again").style('color', '#445300');
     var result = d3.select(this).attr("value");
    
     //зберігаємо результат в 
@@ -93,6 +94,7 @@ d3.selectAll(".guess-model").on("click", function(){
 
 
 d3.select("#play-again").on("click", function(){
+    d3.select(this).style('color', '#4453006b');
     clearAll();
     getRandom();
 })

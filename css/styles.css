@@ -19,6 +19,11 @@ html * {
   color: #445300;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
 #main-wrapper {
   width: 100%;
   max-width: 900px;
@@ -127,8 +132,8 @@ p.small {
 #play-again {
   cursor: pointer;
   display: block;
-  width: 50px;
   margin: 20px auto;
+  color: #4453006b;
 }
 
 #clear-storage {
@@ -149,5 +154,12 @@ p.small {
 
 #final-result a:hover {
   text-decoration: underline;
+}
+
+canvas {
+  display: block;
+  width: 90%;
+  margin: auto;
+  border: 1px solid lightgrey;
 }
 /*# sourceMappingURL=styles.css.map */
