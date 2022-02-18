@@ -1,4 +1,4 @@
-d3.csv("https://raw.githubusercontent.com/texty/tanks_game/main/data/data.csv").then(function(data){
+d3.csv("data/data.csv").then(function(data){
 
 var level = "Легкий";
 var df, unwatched_pics;
