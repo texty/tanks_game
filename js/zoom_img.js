@@ -1,4 +1,6 @@
-const url_ru = 'https://texty.org.ua/media/images/scheme2_HYXdH2f.original.jpg';
+
+document.addEventListener("DOMContentLoaded", function(event) {
+    const url_ru = 'https://texty.org.ua/media/images/scheme2_xBwY4vS.original.jpg';
 const url_ua = 'https://texty.org.ua/media/images/scheme_ukr.original.jpg'
        
 const origin_ru = document.getElementById("rus-tanks");
@@ -23,17 +25,23 @@ function drawCanvas(origin, container, url){
     var image = new Image();
             
     image.onload = function () {
-        context.drawImage(image, 0, 0, width, height);  
-        origin.remove();
+        context.drawImage(image, 0, 0, window.innerWidth, window.innerWidth / ratio);          
     };
+    
     image.src = url;
+    origin.classList.add('mobile-only');;
 
     canvas.call(d3.zoom()
         .scaleExtent([1, 5])
         .on("zoom", zoom)
-        .filter(() => !d3.event.button && d3.event.ctrlKey)
-        )
-        .on("wheel", () => { if (d3.event.ctrlKey) d3.event.preventDefault() });
+        .filter(function() { if( !isMobile.any() ) {
+            !d3.event.button && d3.event.ctrlKey        
+            }
+        }))
+        .on("wheel", function(){ 
+            if (d3.event.ctrlKey && !isMobile.any()) {
+                 d3.event.preventDefault()} 
+                });
 
 
     function zoom() {           
@@ -42,7 +50,7 @@ function drawCanvas(origin, container, url){
             context.clearRect(0, 0, width, height);
             context.translate(transform.x, transform.y);
             context.scale(transform.k, transform.k);
-            context.drawImage(image, 0, 0, width, height);
+            context.drawImage(image, 0, 0, window.innerWidth, window.innerWidth / ratio);
             context.restore();              
     }
 
@@ -52,8 +60,32 @@ function drawCanvas(origin, container, url){
             .attr("width", window.innerWidth)
             .attr("height", window.innerWidth / ratio);
 
-        context.clearRect(0, 0, width, height);
+        context.clearRect(0, 0, window.innerWidth,  window.innerWidth);
         context.drawImage(image, 0, 0,  window.innerWidth, window.innerWidth / ratio);
         context.restore();             
     });
 }
+});
+
+
+var isMobile = {
+    Android: function() {
+        return navigator.userAgent.match(/Android/i);
+    },
+    BlackBerry: function() {
+        return navigator.userAgent.match(/BlackBerry/i);
+    },
+    iOS: function() {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    },
+    Opera: function() {
+        return navigator.userAgent.match(/Opera Mini/i);
+    },
+    Windows: function() {
+        return navigator.userAgent.match(/IEMobile/i) || navigator.userAgent.match(/WPDesktop/i);
+    },
+    any: function() {
+        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+    }
+};
+

@@ -1,33 +1,8 @@
-
-@font-face {
-    font-family: 'ProximaNova';
-    src: url('../font/proxima_regular/proxima-nova-regular.eot');
-    src: url('../font/proxima_regular/proxima-nova-regular.eot?#iefix') format('embedded-opentype'),
-    url('../font/proxima_regular/proxima-nova-regular.woff2') format('woff2'),
-    url('../font/proxima_regular/proxima-nova-regular.woff') format('woff'),
-    url('../font/proxima_regular/proxima-nova-regular.ttf') format('truetype'),
-    url('../font/proxima_regular/proxima-nova-regular.svg#youworkforthem') format('svg');
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: 'ProximaNova';
-    src: url('../font/proxima_bold/proxima-nova-bold.eot');
-    src: url('../font/proxima_bold/proxima-nova-bold.eot?#iefix') format('embedded-opentype'),
-    url('../font/proxima_bold/proxima-nova-bold.woff2') format('woff2'),
-    url('../font/proxima_bold/proxima-nova-bold.woff') format('woff'),
-    url('../font/proxima_bold/proxima-nova-bold.ttf') format('truetype'),
-    url('../font/proxima_bold/proxima-nova-bold.svg#youworkforthem') format('svg');
-    font-weight: 600;
-    font-style: normal;
-  }
-
   $green: #445300;
   $red: #ff4c48;
   
   html * {
-    font-family: 'ProximaNova', sans-serif;  
+    font-family: sans-serif;  
     color: $green;
   }
 
@@ -155,4 +130,17 @@ canvas {
     margin: auto;
     border: 1px solid lightgrey;
     margin-bottom: 50px;
+}
+
+
+.mobile-only {
+    @media (min-width: 801px){
+        display: none !important;
+    }
+}
+
+.desktop-only {
+    @media (max-width: 801px){
+        display: none !important;
+    }
 }
